@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>stats.js</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">cedricpinson </a></h1>
+                <nav><ul>
+                    <li><a href="./category/about.html">About</a></li>
+                    <li class="active"><a href="./category/blog.html">blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./stats-js.html" rel="bookmark"
+           title="Permalink to stats.js">stats.js</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-02-15T00:11:00">
+                Published: Tue 15 February 2011
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/cedric-pinson.html">Cedric Pinson</a>
+        </address>
+<p>In <a href="./category/blog.html">blog</a>. </p>
+
+</footer><!-- /.post-info -->      <p>I have written this afternoon a little class to manage graph, for
+<a href="http://osgjs.org">osg.js</a> I will need to graph the update/cull/draw
+traversal and I guess more others things, so I needed a stats
+functionnality a bit like in
+<a href="https://github.com/mrdoob/three.js/">Three.js</a> demo. I have first get
+his stats.js, but it did not fit my use and I wanted to try without
+redrawing the full graph. I want to get the previous result of the
+canvas then shift it by a delta (new_time - previous_time) and draw
+only one line for the delta elapsed. I have not check if it produces
+better performance but it was cool to code it. You can see the result
+<a href="demo/stats.js/">here</a> and the source code is on github. The
+only problem I could see is that the line are not as clean as it could
+because they are not connect from a full path, and the consequence is
+that antialias can't work on the full path.</p>
+<p><a href="demo/stats.js/"><img alt="" src="media/2011/02/Screenshot-12.jpg" title="Screenshot-12" /></a></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://osgjs.org/">osgjs.org</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Sketchfab - osgjs shader</title>
+
+		<meta name="description" content="Introduction to shader used in osgjs in sketchfab.">
+		<meta name="author" content="Cedric Pinson">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+
+		<link rel="stylesheet" href="lib/zenburn.css">
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+
+			<!-- Used to fade in a background when a specific slide state is reached -->
+			<div class="state-background"></div>
+			
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Sketchfab</h1>
+					<h3 class="inverted">shader used in sketchfab</h3>
+					<script>
+						// Delicously hacky. Look away.
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+					<p>
+						<i><small>- <a href="http://cedricpinson.com">Cedric Pinson</a> / <a href="http://twitter.com/trigoru">@trigrou</a> / <a href="http://sketchfab.com">sketchfab</a></small></i>
+					</p>
+
+				</section>
+				
+				<section>
+					<h2>SceneGraph / <a href="http://osgjs.org">osgjs</a></h2>
+					<p><img src="assets/slide5.jpg" style="margin-left:-40px">
+					</p>
+				</section>
+				<section>
+					<h2>'Static' Shader Generation</h2>
+					<p><img src="assets/slide1.jpg" style="margin-left:-200px">
+					</p>
+				</section>
+				<section>
+					<h2>Does not scale very well</h2>
+					<p><img src="assets/slide2.jpg" style="margin-left:-75px">
+					</p>
+				</section>
+				<section>
+					<h2>Dependency graph to build shader</h2>
+					<p><img src="assets/slide3.jpg" style="margin-left:0px">
+					</p>
+				</section>
+				<section>
+					<h2>Link function node with variables</h2>
+					<p><img src="assets/slide6.jpg" style="margin-left:0px">
+					</p>
+				</section>
+				<section>
+					<h2>Texture Node</h2>
+					<pre><code contenteditable>
+ShaderNode.TextureRGB = function(sampler, uv, output) {
+    ShaderNode.Node.call(this);
+    this._sampler = sampler;
+    this.connectInput(sampler);
+    this.connectInput(uv);
+    if (output !== undefined) {
+        this.connectOutput(output);
+    }
+    this._uv = uv;
+};
+ShaderNode.TextureRGB.prototype = osg.objectInehrit(ShaderNode.Node.prototype, {
+    type: "TextureRGB",
+    computeFragment: function() {
+        var str = [ "",
+                    this._output.getVariable() + " = TextureRGB( " + this._sampler.getVariable() + " , " +this._uv.getVariable() + ".xy);"
+                  ].join('\n');
+        return str;
+    },
+
+    globalFunctionDeclaration: function() {
+        var str = [ "",
+                    "vec3 TextureRGB(const in sampler2D texture, const in vec2 uv) {",
+                    "  return texture2D(texture, uv).rgb;",
+                    "}"
+                  ].join('\n');
+        return str;
+    }
+});
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Blend Node</h2>
+					<pre><code contenteditable>
+ShaderNode.BlendNode = function(mode, val0, val1, t) {
+    ShaderNode.Node.call(this, val0, val1, t);
+    this._mode = mode;
+};
+ShaderNode.BlendNode.prototype = osg.objectInehrit(ShaderNode.Node.prototype, {
+    computeFragment: function() {
+        var mode = this._mode;
+        if (this[mode] === undefined) {
+            mode = 'MIX';
+        }
+        return this[mode]();
+    },
+
+    ADD: function() {
+        return this._output.getVariable() + " = " + this._inputs[0].getVariable() + " + (" + this._inputs[1].getVariable() + " * " + this._inputs[2].getVariable() + ");";
+    },
+
+    MIX: function() {
+        // result = val0*(1.0-t) + t*val1
+        return this._output.getVariable() + " = mix(" + this._inputs[0].getVariable() + ", " + this._inputs[1].getVariable() + ", " + this._inputs[2].getVariable() + ");";
+
+    },
+
+    MULTIPLY: function() {
+        return this._output.getVariable() + " = " + this._inputs[0].getVariable() + " * mix( " + this._inputs[0].getType() + "(1.0), " + this._inputs[1].getVariable() + ", " + this._inputs[2].getVariable() + ");";
+    }
+
+});
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Shader Generator</h2>
+					<p><img src="assets/slide4.jpg" style="margin-left:-75px">
+					</p>
+				</section>
+
+
+				
+				<section>
+					<h1>Thanks</h1>
+					<h3 class="inverted">BY Cedric Pinson / <a href="http://sketchfab.com">sketchfab.com</a></h3>
+				</section>
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+
+		<!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+		<script src="lib/highlight.js"></script>
+		<script src="lib/classList.js"></script>
+		
+		<script src="js/reveal.js"></script>
+		
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			// Fires when a slide with data-state=customevent is activated
+			Reveal.addEventListener( 'customevent', function() {
+				alert( '"customevent" has fired' );
+			} );
+
+			// Fires each time a new slide is activated
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Loops the presentation, defaults to false
+				loop: false,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+
+	</body>
+</html>

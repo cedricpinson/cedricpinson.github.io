@@ -1,0 +1,64 @@
+
+function getKeyIndex(call) {
+    var i = 0;
+    for (k in g) {
+        if (call === k) {
+            console.log(k + " " + i);
+            return i;
+        }
+        i++;
+    }
+}
+
+getKeyIndex("viewport");
+getKeyIndex("createShader");
+getKeyIndex("shaderSource");
+getKeyIndex("compileShader");
+getKeyIndex("createProgram");
+    getKeyIndex("bindBuffer");
+    getKeyIndex("bufferData");
+    getKeyIndex("attachShader");
+    getKeyIndex("linkProgram");
+getKeyIndex("enableVertexAttribArray");
+getKeyIndex("useProgram");
+getKeyIndex("vertexAttribPointer");
+getKeyIndex("getUniformLocation");
+getKeyIndex("uniform1f");
+getKeyIndex("drawArrays");
+getKeyIndex("createBuffer");
+
+// viewport 136
+// orangejoy.js:9createShader 30
+// orangejoy.js:9shaderSource 95
+// orangejoy.js:9compileShader 23
+// orangejoy.js:9createProgram 28
+// orangejoy.js:9bindBuffer 6
+// orangejoy.js:9bufferData 15
+// orangejoy.js:9attachShader 4
+// orangejoy.js:9linkProgram 87
+// orangejoy.js:9enableVertexAttribArray 48
+// orangejoy.js:9useProgram 125
+// orangejoy.js:9vertexAttribPointer 135
+// orangejoy.js:9getUniformLocation 74
+// orangejoy.js:9uniform1f 106
+// orangejoy.js:9drawArrays 45
+// orangejoy.js:9createBuffer 26
+
+
+
+[19:19:55.001] viewport 120
+[19:19:55.004] createShader 51
+[19:19:55.007] shaderSource 11
+[19:19:55.010] compileShader 4
+[19:19:55.011] createProgram 48
+[19:19:55.012] bindBuffer 32
+[19:19:55.014] bufferData 2
+[19:19:55.015] attachShader 1
+[19:19:55.017] linkProgram 9
+[19:19:55.018] enableVertexAttribArray 69
+[19:19:55.020] useProgram 113
+[19:19:55.022] vertexAttribPointer 119
+[19:19:55.024] getUniformLocation 81
+[19:19:55.026] uniform1f 105
+[19:19:55.028] drawArrays 66
+[19:19:55.029] createBuffer 47

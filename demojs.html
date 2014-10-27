@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>DemoJS</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">cedricpinson </a></h1>
+                <nav><ul>
+                    <li><a href="./category/about.html">About</a></li>
+                    <li class="active"><a href="./category/blog.html">blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./demojs.html" rel="bookmark"
+           title="Permalink to DemoJS">DemoJS</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-12-27T00:00:00">
+                Published: Tue 27 December 2011
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/cedric-pinson.html">Cedric Pinson</a>
+        </address>
+<p>In <a href="./category/blog.html">blog</a>. </p>
+
+</footer><!-- /.post-info -->      <p>We had a meeting a few months ago before the demojs event in Paris to
+organize it. I worked on the
+<a href="demojs-fff/">intro</a> to announce the event 10
+days before the deadline. 4 of us made this intro: Guillaume Lecollinet
+who helped on design and css stuff, Ulrick for the music and Mestaty for
+3d models, both are from <a href="http://frequency.fr/">FRequency</a> demo group
+and I worked on the code. If you are interested in particles you really
+need to read this <a href="http://directtovideo.wordpress.com/">blog</a>. This guy
+does awesome things.</p>
+<h2>Particles again</h2>
+<p>At the beginning I did not really know what I wanted to create. I wanted
+to work on particles but with more complexity than my <a href="./webgl-particles.html">previous
+toy</a>. Finally I did an
+intro only with particles. The consequence is that the entire intro used
+the same shader, I will describe the following stuff I used into the
+intro.</p>
+<ul>
+<li>Verlet physic integration</li>
+<li>Spawning particles</li>
+<li>Distance map</li>
+<li>Velocity field</li>
+<li>Morphing of 3d models</li>
+</ul>
+<h2>Verlet Integration</h2>
+<p><a href="http://en.wikipedia.org/wiki/Verlet_integration">Verlet integration</a> in
+a nutshell is a numerical method used to integrate Newton's equations of
+motion. There is a good
+<a href="http://codeflow.org/entries/2010/nov/29/verlet-collision-with-impulse-preservation/">blog</a>
+and examples how to use it. In webgl we can't use render to texture on
+floating point texture. In fact we can use an extension but I wanted to
+make it works on most browser with webgl so I did not use the extension.
+The consequence is that particles coordinates has to be encoded in
+specific format on rgba pixels.</p>
+<ul>
+<li><img alt="" src="media/2011/11/buffers.jpg" title="SAMSUNG" /></li>
+<li><img alt="" src="media/2011/11/pixels.jpg" title="SAMSUNG" /></li>
+</ul>
+<p>In my previous <a href="./webgl-particles.html">particles
+toy</a> I used 16 bits fixed
+point to encode coordinates, but on this one I wanted to improve it and
+try 24 bits to have more precision, I encoded more informations like
+signed distance, life of particle, or material id in pixels. (picture
+above left). In webgl there is no multi render target and I had to draw
+the scene 3 times to compute particle's positions, for x, y and z. To
+select each dimension I wanted I used a uniform.
+Finally to compute a 'next' frame (3 textures) it required 'current'
+frame (3 textures) 'previous' frame (3 textures), in final I needed 9
+textures to just have the verlet physic running without controlling
+their motions. For this I used others textures I will describe after.
+Texture size . To not hurt too much my gpu, I fixed the texture's size
+to 512x512, meaning 262144 particles. We could</p>
+<h2>Spawning particles</h2>
+<p>To determine the life span and position of new particles, I used uv
+range of particles to distributes them in space. It's not really elegant
+or pratical for bigger projects/shapes. For example, the equalizer scene
+was done allowing particles on a plane where equalizers were. Basically
+there is a range 0.25 in 'u' per equalizer bar and I limited the v to
+0.5. So we have 0.25*(4 equalizer) and v limited in 0.5 it means
+0.25*4u + 0.5v = 131072 particles allocated for equalizers, and the
+131072 others are used for the 3d models. Next time I would like to try
+'mesh emitter' or something more useful than doing it manually.</p>
+<h2>Distance Map</h2>
+<p>What is a distance map ? you can read this <a href="http://www.valvesoftware.com/publications/2007/SIGGRAPH2007_AlphaTestedMagnification.pdf">paper from
+valve</a>
+that explains how it works.
+Distance map is a really useful tool to control particles. In the intro
+I used texture that encodes distance map and gradient (the vector that
+tells you which direction to take to go to the nearest point on the
+shape). For this I created a tool
+(<a href="https://github.com/cedricpinson/DistanceMapGenerator">DistanceMapGenerator</a>)
+and then I computed the gradient from the distance map. Finally I
+constructed a texture that contains both pieces of information. During
+the computation of the position I take the signed distance of this
+position to fit the shape I want, eg:</p>
+<div class="highlight"><pre><span class="n">vec3</span> <span class="nf">getDirection</span><span class="p">(</span><span class="n">vec3</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">vec4</span> <span class="n">d</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span> <span class="n">DistanceMap</span><span class="p">,</span> <span class="n">vec2</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">.</span><span class="n">z</span><span class="p">));</span>
+  <span class="n">vec2</span> <span class="n">grad</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">rg</span><span class="p">;</span>
+  <span class="n">vec3</span> <span class="n">dir</span> <span class="o">=</span> <span class="n">vec3</span><span class="p">(</span><span class="mf">0.5</span><span class="o">-</span><span class="n">grad</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">0.125</span><span class="o">*</span><span class="p">(</span><span class="mf">0.5</span><span class="o">-</span><span class="n">pos</span><span class="p">.</span><span class="n">y</span><span class="p">),</span> <span class="mf">0.5</span><span class="o">-</span><span class="n">grad</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+  <span class="n">dir</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">dir</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">dir</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">float</span> <span class="nf">getDistance</span><span class="p">(</span><span class="n">vec3</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">d</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span> <span class="n">DistanceMap</span><span class="p">,</span> <span class="n">vec2</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">.</span><span class="n">z</span><span class="p">)).</span><span class="n">b</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">d</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// here I know at wich distance my particle is from the nearest border</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="n">getDistance</span><span class="p">(</span><span class="n">currentPosition</span><span class="p">)</span><span class="o">*</span><span class="n">weightDistanceMap</span><span class="p">;</span>
+
+<span class="c1">// and here I know in wich direction the nearest border is</span>
+<span class="n">direction</span> <span class="o">=</span> <span class="n">getDirection</span><span class="p">(</span><span class="n">currentPosition</span><span class="p">)</span><span class="o">*</span><span class="n">weightDistanceMap</span><span class="o">*</span><span class="mf">0.4</span><span class="p">;</span>
+
+<span class="c1">// it&#39;s easy after to use this direction to create a force and make the</span>
+<span class="c1">// particle go in the direction of the shape`</span>
+</pre></div>
+
+
+<ul>
+<li><img alt="" src="media/2011/11/Title.jpg" title="Title" /></li>
+<li><img alt="" src="media/2011/11/Title_grad.jpg" title="Title_grad" /></li>
+</ul>
+<p>This technique was used for most of the motions/shapes I wanted the
+particles to fit in. I tried to manipulate particles manually but it was
+too complex and I was not able to do what I wanted to. Distance maps is
+really easier.</p>
+<h2>Velocity field</h2>
+<p><img alt="" src="media/2011/11/udav1.jpg" title="udav" /></p>
+<p>To add some perturbation motion like 'procedural wind' I used a
+MathGL/udav tool. The idea was to find a nice formula I could use in the
+shader that produces nice motion. For that I used udav to display the
+vector field from the formula. Once I was happy with the vector field, I
+added some variation in real time depending on time. This tool was not
+really convenient and maybe next time I will write something to help me
+with this. Once the formula was selected I used a lookup to get my
+vector depending on particle's position. It looks like this below:</p>
+<div class="highlight"><pre><span class="n">vec3</span> <span class="nf">getVelocityField</span><span class="p">(</span><span class="n">vec3</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="n">mod</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">15.0</span><span class="p">);</span>
+  <span class="c1">//mod(time, 5.0);</span>
+  <span class="kt">float</span> <span class="n">vx</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">+</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.5</span><span class="o">+</span><span class="mf">2.0</span><span class="o">*</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">t</span><span class="p">));</span>
+  <span class="kt">float</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="mf">4.0</span><span class="o">*</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">y</span><span class="o">*</span><span class="n">t</span><span class="o">+</span> <span class="n">seed</span><span class="o">*</span><span class="mf">0.5</span><span class="p">))</span> <span class="o">+</span> <span class="n">seed</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="mf">4.0</span><span class="o">*</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="p">);</span>
+  <span class="kt">float</span> <span class="n">vz</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">z</span><span class="o">*</span><span class="mf">2.0</span><span class="o">*</span><span class="n">t</span><span class="p">);</span>
+  <span class="n">vec3</span> <span class="n">vel</span> <span class="o">=</span> <span class="n">vec3</span><span class="p">(</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">vz</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">normalize</span><span class="p">(</span><span class="n">vel</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2>3D models</h2>
+<p>At the end of the intro I used morphing between different 3d models (
+the firefox logo, and the abstract model formed of cube ). To use those
+models with particles I first had to convert them into a suitable format
+for the particle system, meaning into textures that would encode the
+model's position as rgb pixels. The particle system used 262k particles
+but models used up to 131k vertexes ( remember 131k particles were
+allocated for the equalizers ). So we have 131k particles to display
+morph and animate our 3d models. The morphing between the different
+shapes works with a lerp between position ( finalVertex = model0*t +
+model1*(1.0-t) ). To add some perturbation to the motion we still add
+the 'fake wind' during the animation. If you want to check the tool to
+build vertex to texture format used by the particle system look
+<a href="https://github.com/cedricpinson/osg/tree/master/src/osgPlugins/vert2text32">here</a>.
+It's a plugin for <a href="http://www.openscenegraph.org/">openscenegraph</a>.</p>
+<h2>Music</h2>
+<p>The music was done by Ulrick from FRequency and they used their own tool
+to export pattern events in a c++ header. I made a little script to
+convert the result into json, and then I injected events data into
+timeline.js. <a href="https://github.com/cedricpinson/timeline.js">Timeline.js</a>
+was great but I needed to patch it to support callback and use an
+external time, the one that came from the music.</p>
+<h2>Improvements</h2>
+<p>There is a lot of stuff I would have wanted to do better but 10 days was
+too short. So I discarded lighting on particles, shadow, spawn mesh
+emitter, post process effect, smoke simulation with sph. Maybe the next
+time I will play with particles I will be able to add some of those
+elements.</p>
+<h2>links</h2>
+<ul>
+<li><a href="demojs-fff/">Intro fff</a> or the
+    <a href="http://www.youtube.com/watch?v=DHup1JfEsXo">video</a></li>
+<li><a href="http://directtovideo.wordpress.com/">directtovideo</a></li>
+<li><a href="http://codeflow.org/">codeflow</a></li>
+<li><a href="http://frequency.fr/">FRequency</a></li>
+<li><a href="http://osgjs.org">osgjs</a></li>
+<li><a href="https://github.com/cedricpinson/DistanceMapGenerator">DistanceMapGenerator</a></li>
+<li><a href="https://github.com/cedricpinson/osg/tree/master/src/osgPlugins/vert2text32">model to
+    texture</a></li>
+<li><a href="http://demojs.org/">demojs.org</a></li>
+<li><a href="https://github.com/cedricpinson/timeline.js">Timeline.js</a></li>
+</ul>
+<p>Thanks for people who helps to make this webgl intro it was really fun.
+The most stuff I liked was the good ambience of the team, that was
+really cool. Thank you guys :)</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://osgjs.org/">osgjs.org</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

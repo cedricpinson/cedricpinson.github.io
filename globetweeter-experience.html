@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>GlobeTweeter - Experience</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">cedricpinson </a></h1>
+                <nav><ul>
+                    <li><a href="./category/about.html">About</a></li>
+                    <li class="active"><a href="./category/blog.html">blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./globetweeter-experience.html" rel="bookmark"
+           title="Permalink to GlobeTweeter - Experience">GlobeTweeter - Experience</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-05-03T10:47:00">
+                Published: Tue 03 May 2011
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/cedric-pinson.html">Cedric Pinson</a>
+        </address>
+<p>In <a href="./category/blog.html">blog</a>. </p>
+
+</footer><!-- /.post-info -->      <p>Over the last few months, I have been working on a webgl demo for
+firefox. The objective was to create a demo to showcase webgl
+technology. I am currently working on a 3D framework called
+<a href="http://osgjs.org">osgjs</a> so the application uses this javascript
+library. osgjs is a javascript implementation of
+<a href="http://openscenegraph.org">OpenSceneGraph</a> and helps to manage 3d
+scenes and webgl states. You can get more information on the
+<a href="http://osgjs.org">website</a>.</p>
+<p>We did different experiments before we ended up with globetweeter, I
+kept some of them for history :)</p>
+<h3>Jurassic Park</h3>
+<p>I started off by creating a file system similar to the 3D file system
+used in Jurassic Park. I had to figure out the best type of camera that
+would be suitable to use with the system.</p>
+<ul>
+<li><img alt="" src="media/2011/03/camera-1.jpg" title="Camera" /></li>
+<li><img alt="" src="media/2011/03/camera-0.jpg" title="Camera" /></li>
+</ul>
+<p>The idea is simple. Let's say a user selects the item <strong>B</strong> . When
+selected, the camera moves from its current viewpoint to the chosen
+item. The position of the camera (<strong>C</strong>) is in orbit relative to the
+selected item. Basically I used a lookat matrix from the camera position
+(<strong>C</strong>) to the target item. To create the camera motion when moving from
+one item to another, I interpolated the target position (<strong>from A to
+B</strong>) and generated a rotation around this interpolated point (<strong>X</strong>)
+during the animation. I added some constraints like the distance from
+the target point and some limits in the rotation to keep the camera
+position in range (like if we would see the item from a 3rd person).
+Check out this <a href="demo/ff4demo/demo3/demo.html">experiment</a>
+(use 'del' key to go to previous level).</p>
+<h3>Twitter</h3>
+<p>This idea ended up being too geeky, so we tried out something more
+popular and surrounded by more hype. And therein was born the idea of
+displaying tweets with 3D.
+A first try was to iterate on something like tweet deck but we wanted
+something that would be more responsive and with eye candy features...
+the first ugly <a href="demo/ff4demo/demo2/demo.html">experiment</a>
+was to render tweets in a canvas and to use them as texture in 3D. We
+ended up dropping this idea and instead decided to show tweets
+geo-localized on the earth.</p>
+<p>The last idea we had is the current incarnation of the globe tweeter. To
+make the globe I used 3 data files from <a href="http://www.naturalearthdata.com/">natural earth
+data</a></p>
+<ul>
+<li><a href="http://showwebgl.com/show/?q=g6lu4j6t5m8scg4s8og0wkwwss0gwk0&amp;LIGHT=0&amp;CULL_FACE=0">110m admin 0
+    countries.shp</a>
+    contains the polygons of countries</li>
+<li><a href="http://showwebgl.com/show/?q=6f68hn2hr8so44csowwc4skkcgg4s8k&amp;LIGHT=0">110m
+    coastline.shp</a>
+    contains only the coastline (meaning lines around oceans)</li>
+<li><a href="http://showwebgl.com/show/?q=fxaeg6xeuvc4so0sgcgkswsgk0sw8g4&amp;LIGHT=0">110m admin 0 boundary lines
+    land.shp</a>
+    contains the lines inside land boundaries</li>
+</ul>
+<p>As you can see, those data are flat and need to be projected on a
+sphere. Before projecting those data, however, I had to tesselate the
+triangles in order to have enough vertex to project a clean shape on the
+sphere. For this I have created a tool called 'grid'. It tessellates the
+input shape with a grid. It's a kind of boolean union operation.</p>
+<ul>
+<li><img alt="" src="media/2011/03/grid.jpg" title="grid" /></li>
+<li><img alt="" src="media/2011/03/grid0.jpg" title="grid0" /></li>
+</ul>
+<p>Above on the left, you can see the white model that is the original
+'110m admin 0 countries.shp'. The black model is the same model but
+tesselated a bit more to fit more closely on the sphere. On the right is
+the model (grid) use to tessellate the original '110m admin 0
+countries.shp'. The idea is to add subdivisions on the height section of
+the model.</p>
+<p>Once the data is subdivided enough, I created a tool to project each
+vertex onto a sphere using the standard <a href="http://en.wikipedia.org/wiki/WGS84">WGS84
+projection</a>. <strong>You can see a webgl
+version of the projected model by clicking on the picture</strong>.</p>
+<ul>
+<li><img alt="" src="media/2011/03/globe-2.jpg" title="globe-2" /></li>
+<li><img alt="" src="media/2011/03/globe-1.jpg" title="globe-1" /></li>
+<li><img alt="" src="media/2011/03/globe-0.jpg" title="globe-0" /></li>
+<li><img alt="" src="media/2011/03/globe-4.jpg" title="globe-4" /></li>
+</ul>
+<p>Once the data below were ready we selected a nice color for each model.
+On the demo I drew the globe in two passes. The first pass drew back
+faces of '110m admin 0 countries' with 'back color' and the second drew
+the front faces with 'front color'. It was necessary to have
+transparency of the globe because of the blending mode 'One Minus Src
+Alpha'.</p>
+<p>The Final result looks like this</p>
+<p><img alt="" src="media/2011/05/Screenshot-21.jpg" title="Screenshot-21" /></p>
+<h3>SceneGraph representation</h3>
+<p><img alt="" src="media/2011/04/gt_tree.jpg" title="SceneGraph" /></p>
+<h3>Wave</h3>
+<p>To add some details about twitter activity I setup a simple wave physics
+simulation that produces waves where tweets appear. The algorithm to
+produce the waves is explained
+<a href="http://freespace.virgin.net/hugo.elias/graphics/x_water.htm">here</a>. To
+accomplish this I used two small hidden canvases with a size of 128x64 ,
+I used small canvases because the computation is done on javascsipt and
+can be expensive. The update of waves was updated every 1/30 seconds.
+The update function did the following operations:</p>
+<ul>
+<li>Convert tweets locations into source wave in the canvas.</li>
+<li>Do the physics computation and store the result into the current
+    canvas.</li>
+<li>Upload the current canvas as texture to use in the vertex shader.
+    The vertex shader used this texture as a
+    <a href="http://en.wikipedia.org/wiki/Heightmap">heightmap</a>. To understand
+    better how the heightmap works you can see
+    <a href="http://showwebgl.com/show/?q=7m1vu1clptog8ccs880o0s44cwks000&amp;LIGHT=0">here</a>
+    the original model without waves.</li>
+</ul>
+<p>Vertex Shader</p>
+<div class="highlight"><pre><span class="cp">#ifdef GL_ES</span>
+<span class="n">precision</span> <span class="n">highp</span> <span class="kt">float</span><span class="p">;</span>
+<span class="cp">#endif</span>
+<span class="n">attribute</span> <span class="n">vec3</span> <span class="n">Vertex</span><span class="p">;</span>
+<span class="n">attribute</span> <span class="n">vec3</span> <span class="n">TexCoord0</span><span class="p">;</span>
+<span class="n">uniform</span> <span class="n">mat4</span> <span class="n">ModelViewMatrix</span><span class="p">;</span>
+<span class="n">uniform</span> <span class="n">mat4</span> <span class="n">ProjectionMatrix</span><span class="p">;</span>
+<span class="n">uniform</span> <span class="n">mat4</span> <span class="n">NormalMatrix</span><span class="p">;</span>
+<span class="n">uniform</span> <span class="kt">float</span> <span class="n">scale</span><span class="p">;</span>
+<span class="n">uniform</span> <span class="n">sampler2D</span> <span class="n">Texture0</span><span class="p">;</span>
+<span class="n">varying</span> <span class="kt">float</span> <span class="n">height</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">maxHeight</span> <span class="o">=</span> <span class="mf">1400000.0</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vec4</span> <span class="n">color</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span> <span class="n">Texture0</span><span class="p">,</span> <span class="n">TexCoord0</span><span class="p">.</span><span class="n">xy</span><span class="p">);</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="n">vec3</span> <span class="n">normal</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">Vertex</span><span class="p">);</span>
+    <span class="n">vec3</span> <span class="n">normalTransformed</span> <span class="o">=</span> <span class="n">vec3</span><span class="p">(</span><span class="n">NormalMatrix</span> <span class="o">*</span> <span class="n">vec4</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="mf">0.0</span><span class="p">));</span>
+    <span class="kt">float</span> <span class="n">dotComputed</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">normalTransformed</span><span class="p">,</span> <span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+    <span class="n">height</span> <span class="o">*=</span> <span class="n">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dotComputed</span><span class="p">);</span>
+    <span class="n">vec4</span> <span class="n">vrt</span> <span class="o">=</span> <span class="n">vec4</span><span class="p">(</span><span class="n">Vertex</span> <span class="o">+</span>  <span class="n">normal</span> <span class="o">*</span> <span class="p">(</span> <span class="n">height</span> <span class="o">*</span> <span class="n">maxHeight</span> <span class="o">*</span> <span class="n">scale</span><span class="p">),</span><span class="mf">1.0</span><span class="p">);</span>
+    <span class="n">gl_Position</span> <span class="o">=</span> <span class="n">ProjectionMatrix</span> <span class="o">*</span> <span class="n">ModelViewMatrix</span> <span class="o">*</span> <span class="n">vrt</span><span class="p">;</span>
+    <span class="n">height</span> <span class="o">*=</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">scale</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Fragment Shader</p>
+<div class="highlight"><pre><span class="cp">#ifdef GL_ES</span>
+<span class="n">precision</span> <span class="n">highp</span> <span class="kt">float</span><span class="p">;</span>
+<span class="cp">#endif</span>
+<span class="n">uniform</span> <span class="n">vec4</span> <span class="n">fragColor</span><span class="p">;</span>
+<span class="n">varying</span> <span class="kt">float</span> <span class="n">height</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">gl_FragColor</span> <span class="o">=</span> <span class="n">fragColor</span> <span class="o">*</span> <span class="n">height</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>This shader is applied on a regular grid model projected on the sphere
+as explained before but this time the grid has a better resolution. Some
+of you will not see the relief of the waves because some webgl
+implementation does not expose texture unit on the vertex shader.
+Therefore as a work around I made another shader that does not move the
+vertexes in the vertex shader. Instead it only changes the color of the
+vertexes. You can read more about this issue on the <a href="https://groups.google.com/group/angleproject/browse_thread/thread/fbf08f0ab51ff26d">Angle
+project</a>.</p>
+<p>Vertex Shader</p>
+<div class="highlight"><pre><span class="cp">#ifdef GL_ES</span>
+<span class="n">precision</span> <span class="n">highp</span> <span class="kt">float</span><span class="p">;</span>
+<span class="cp">#endif</span>
+<span class="n">attribute</span> <span class="n">vec3</span> <span class="n">Vertex</span><span class="p">;</span>
+<span class="n">attribute</span> <span class="n">vec3</span> <span class="n">TexCoord0</span><span class="p">;</span>
+<span class="n">uniform</span> <span class="n">mat4</span> <span class="n">ModelViewMatrix</span><span class="p">;</span>
+<span class="n">uniform</span> <span class="n">mat4</span> <span class="n">ProjectionMatrix</span><span class="p">;</span>
+<span class="n">uniform</span> <span class="n">mat4</span> <span class="n">NormalMatrix</span><span class="p">;</span>
+<span class="n">varying</span> <span class="kt">float</span> <span class="n">dotComputed</span><span class="p">;</span>
+<span class="n">varying</span> <span class="n">vec2</span> <span class="n">TexCoordFragment</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">TexCoordFragment</span> <span class="o">=</span> <span class="n">TexCoord0</span><span class="p">.</span><span class="n">xy</span><span class="p">;</span>
+    <span class="n">vec3</span> <span class="n">normal</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">Vertex</span><span class="p">);</span>
+    <span class="n">vec3</span> <span class="n">normalTransformed</span> <span class="o">=</span> <span class="n">vec3</span><span class="p">(</span><span class="n">NormalMatrix</span> <span class="o">*</span> <span class="n">vec4</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="mf">0.0</span><span class="p">));</span>
+    <span class="n">dotComputed</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">dot</span><span class="p">(</span><span class="n">normalTransformed</span><span class="p">,</span> <span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">dotComputed</span> <span class="o">&gt;</span> <span class="mf">0.001</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">dotComputed</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">gl_Position</span> <span class="o">=</span> <span class="n">ProjectionMatrix</span> <span class="o">*</span> <span class="n">ModelViewMatrix</span> <span class="o">*</span> <span class="n">vec4</span><span class="p">(</span><span class="n">Vertex</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Fragment Shader</p>
+<div class="highlight"><pre><span class="cp">#ifdef GL_ES</span>
+<span class="n">precision</span> <span class="n">highp</span> <span class="kt">float</span><span class="p">;</span>
+<span class="cp">#endif</span>
+<span class="n">uniform</span> <span class="n">sampler2D</span> <span class="n">Texture0</span><span class="p">;</span>
+<span class="n">uniform</span> <span class="n">vec4</span> <span class="n">fragColor</span><span class="p">;</span>
+<span class="n">uniform</span> <span class="kt">float</span> <span class="n">scale</span><span class="p">;</span>
+<span class="n">varying</span> <span class="kt">float</span> <span class="n">dotComputed</span><span class="p">;</span>
+<span class="n">varying</span> <span class="n">vec2</span> <span class="n">TexCoordFragment</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vec4</span> <span class="n">color</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span> <span class="n">Texture0</span><span class="p">,</span> <span class="n">TexCoordFragment</span><span class="p">.</span><span class="n">xy</span><span class="p">);</span>
+    <span class="n">gl_FragColor</span> <span class="o">=</span> <span class="n">fragColor</span> <span class="o">*</span> <span class="n">min</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">dotComputed</span> <span class="o">*</span> <span class="n">color</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.999999</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Yes it's a bit sad, I have seen this issue lately ... :( . As conclusion
+this effect works well but it takes too much cpu in javascript/canvas, I
+should have tried a different effect that was less cpu intensive. Have a
+look at this <a href="http://www.youtube.com/watch?v=ul9cIj7wISE">video</a> if you
+can't see the waves's relief.</p>
+<h3>Tweets</h3>
+<p>Tweets are displayed with the avatar image with simple quad oriented and
+positioned on the sphere from latitude/longitude. To add a nice border
+around the image I used a blending operation in the canvas with the
+following image.</p>
+<p><img alt="" src="media/2011/04/tweets.jpg" title="tweets" /></p>
+<p>Finally to have a nice animation when a tweet appears and disappears, I
+used an EaseInQuad function for the color, and EaseOutElastic for the
+scale component.</p>
+<div class="highlight"><pre><span class="nx">EaseInQuad</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="nx">t</span><span class="o">*</span><span class="nx">t</span><span class="p">);</span> <span class="p">};</span>
+<span class="nx">EaseOutElastic</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.0</span><span class="o">*</span><span class="nx">t</span><span class="p">)</span> <span class="o">*</span>
+                                         <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">((</span><span class="nx">t</span><span class="o">-</span><span class="mf">0.3</span><span class="o">/</span><span class="mf">4.0</span><span class="p">)</span> <span class="o">*</span>
+                                         <span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">;</span> <span class="p">};</span>
+</pre></div>
+
+
+<p>Zooming to the earth made tweet really huge related to the screen. To
+prevent this effect I introduced a scale factor that depends on the
+camera altitude. The full code to update a tweet looks like this</p>
+<div class="highlight"><pre><span class="n">update</span><span class="o">:</span> <span class="kd">function</span><span class="o">(</span><span class="n">node</span><span class="o">,</span> <span class="n">nv</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">ratio</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="n">var</span> <span class="n">currentTime</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="na">getFrameStamp</span><span class="o">().</span><span class="n">getSimulationTime</span><span class="o">();</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">startTime</span> <span class="o">===</span> <span class="kc">undefined</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">node</span><span class="o">.</span><span class="na">startTime</span> <span class="o">=</span> <span class="n">currentTime</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">duration</span> <span class="o">===</span> <span class="kc">undefined</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">node</span><span class="o">.</span><span class="na">duration</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="n">var</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">currentTime</span> <span class="o">-</span> <span class="n">node</span><span class="o">.</span><span class="na">startTime</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">dt</span> <span class="o">&gt;</span> <span class="n">node</span><span class="o">.</span><span class="na">duration</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">node</span><span class="o">.</span><span class="na">setNodeMask</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">ratio</span> <span class="o">=</span> <span class="n">dt</span><span class="o">/</span><span class="n">node</span><span class="o">.</span><span class="na">duration</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">originalMatrix</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">var</span> <span class="n">scale</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">dt</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">scale</span> <span class="o">=</span> <span class="n">osgAnimation</span><span class="o">.</span><span class="na">EaseOutElastic</span><span class="o">(</span><span class="n">dt</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">scale</span> <span class="o">*=</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">manipulator</span><span class="o">.</span><span class="na">height</span><span class="o">/</span><span class="k">this</span><span class="o">.</span><span class="na">WGS_84_RADIUS_EQUATOR</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">manipulator</span><span class="o">.</span><span class="na">height</span> <span class="o">&gt;</span> <span class="k">this</span><span class="o">.</span><span class="na">limit</span><span class="o">)</span> <span class="o">{</span>
+           <span class="n">var</span> <span class="n">limitConst</span> <span class="o">=</span> <span class="mf">0.8</span><span class="o">/(</span><span class="mf">2.5</span><span class="o">*</span><span class="k">this</span><span class="o">.</span><span class="na">WGS_84_RADIUS_EQUATOR</span><span class="o">-</span><span class="k">this</span><span class="o">.</span><span class="na">limit</span><span class="o">);</span>
+           <span class="n">var</span> <span class="n">rr</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">manipulator</span><span class="o">.</span><span class="na">height</span><span class="o">-</span><span class="k">this</span><span class="o">.</span><span class="na">limit</span><span class="o">)</span> <span class="o">*</span> <span class="n">limitConst</span><span class="o">;</span>
+           <span class="n">scale</span> <span class="o">*=</span> <span class="n">rr</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">var</span> <span class="n">scaleMatrix</span> <span class="o">=</span> <span class="n">osg</span><span class="o">.</span><span class="na">Matrix</span><span class="o">.</span><span class="na">makeScale</span><span class="o">(</span><span class="n">scale</span><span class="o">,</span> <span class="n">scale</span><span class="o">,</span> <span class="n">scale</span><span class="o">);</span>
+        <span class="n">node</span><span class="o">.</span><span class="na">setMatrix</span><span class="o">(</span><span class="n">osg</span><span class="o">.</span><span class="na">Matrix</span><span class="o">.</span><span class="na">mult</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">originalMatrix</span><span class="o">,</span> <span class="n">scaleMatrix</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="n">var</span> <span class="n">value</span> <span class="o">=</span> <span class="o">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">osgAnimation</span><span class="o">.</span><span class="na">EaseInQuad</span><span class="o">(</span><span class="n">ratio</span><span class="o">));</span>
+    <span class="n">var</span> <span class="n">uniform</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">uniform</span><span class="o">;</span>
+    <span class="n">var</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="n">value</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">value</span><span class="o">];</span>
+    <span class="n">uniform</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+    <span class="n">node</span><span class="o">.</span><span class="na">traverse</span><span class="o">(</span><span class="n">nv</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3>NodeJS</h3>
+<p>The server responsible for sending tweets to the clients is done with
+nodejs. I used twitter-node, socket.io, and express modules to build the
+server. The code is really short so you can have a look on the server
+directly. You can get the server code
+<a href="https://github.com/cedricpinson/globetweeter-server/">here</a> and improve
+it :) A big hug to proppy who bootstraps the nodejs server \o/</p>
+<h3>Stats</h3>
+<p>The first graph shows the number of connections per day. There is a big
+spike when the news was broadcasted. The second graph shows the number
+of connections per day but with a smaller scale and the last graph shows
+the cumulated number of connections.</p>
+<p><img alt="" src="media/2011/05/stats1.png" title="stats" /></p>
+<p><strong>Links</strong></p>
+<ul>
+<li>video <a href="http://www.youtube.com/watch?v=fWuPWaBbS_o">Firefox 4 3D WebGL Demo -
+    GlobeTweeter</a></li>
+<li>video <a href="http://www.youtube.com/watch?v=Dw5G0UvWB80">GlobeTweeter--Behind the Making of the
+    Demo</a></li>
+<li>video <a href="http://www.youtube.com/watch?v=ul9cIj7wISE">GlobeTweeter</a></li>
+<li>video <a href="http://www.youtube.com/watch?v=Wo_LlP-VvhY">WebGL globetweeter demo Firefox
+    4.0</a></li>
+<li><a href="https://mozillademos.org/demos/globetweeter/demo.html">globe tweeter
+    demo</a></li>
+<li><a href="https://github.com/cedricpinson/globetweeter/">globe tweeter source
+    code</a></li>
+<li><a href="https://github.com/cedricpinson/globetweeter-server">globe tweeter server source
+    code</a></li>
+<li><a href="https://github.com/cedricpinson/osgjs">osgjs</a></li>
+<li><a href="https://sketchfab.com">sketchfab to convert / display model on the
+    web</a></li>
+<li><a href="demo/insideglobetweeter/">conf at parisjs#6</a></li>
+</ul>
+<p>A big thanks to Paul Rouget from Mozilla who made this demo possible and
+Guillaume Lecollinet who designed this demo.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://osgjs.org/">osgjs.org</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

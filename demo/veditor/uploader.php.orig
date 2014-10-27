@@ -1,0 +1,23 @@
+<?
+
+/* Add the original filename to our target path.
+Result is "uploads/filename.extension" */
+//$target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
+//$target_path = "/var/www/vehicleEditor/data/template.blend";
+$target_path = "uploads/template.blend";
+$tmp = $_FILES['file']['tmp_name'];
+if (is_uploaded_file($_FILES['file']['tmp_name'])) {
+//printf("tmp file: $tmp \n");
+//printf($_FILES['file']['tmp_name']);
+move_uploaded_file($_FILES['file']['tmp_name'], $target_path);
+
+$cmd = "bash rebuild.sh";
+echo "<pre>";
+$output = system($cmd); 
+printf("Output: $output\n");
+echo "</pre>";
+} else {
+
+printf("file not uploaded\n");
+}
+?>
