@@ -1,43 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="">	
 <head>
-        <meta charset="utf-8" />
-        <title>OpenSceneGraph tools for OpenGL es 2.0</title>
-        <link rel="stylesheet" href="./theme/css/main.css" />
+	<meta charset="utf-8"/>
+	<title>OpenSceneGraph tools for OpenGL es 2.0 - cedricpinson</title>	
+	<meta name="author" content="cedric pinson">
+	
 
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+  <meta name="description" content="I have done plugins and pseudo loader for OpenSceneGraph to work with OpenGL es 2.0 spec and webgl. The first thing you need when working with big mesh is to split them in bunch of 65536 vertexes because opengl es 2.0 speccification limit the size of indexes to ...">
+
+
+
+	<link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+		
+
+
 </head>
+	
+<body>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="./">cedricpinson </a></h1>
-                <nav><ul>
-                    <li><a href="./category/about.html">About</a></li>
-                    <li class="active"><a href="./category/blog.html">blog</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="./openscenegraph-tools-for-opengl-es-2-0.html" rel="bookmark"
-           title="Permalink to OpenSceneGraph tools for OpenGL es 2.0">OpenSceneGraph tools for OpenGL es 2.0</a></h1>
-    </header>
+    <div class="container">
+	  
+	  <header role="banner">
+	    <div class="feeds">
+	    </div>
+		<a href="." class="title">cedricpinson</a>
+      </header>
+	
+	  <div class="wrapper">
 
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2011-04-14T11:37:00">
-                Published: Thu 14 April 2011
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/cedric-pinson.html">Cedric Pinson</a>
-        </address>
-<p>In <a href="./category/blog.html">blog</a>. </p>
-
-</footer><!-- /.post-info -->      <p>I have done plugins and pseudo loader for OpenSceneGraph to work with
+		  <div role="main" class="content">
+	<article class="full">
+		
+		<h1>OpenSceneGraph tools for OpenGL es 2.0</h1>
+		
+<div class="metadata">
+  <time datetime="2011-04-14T11:37:00" pubdate>Thu 14 April 2011</time>
+    <address class="vcard author">
+      by <a class="url fn" href="./author/cedric-pinson.html">Cedric Pinson</a>
+    </address>
+  in <a href="./category/blog.html">blog</a>
+</div>		
+		<p>I have done plugins and pseudo loader for OpenSceneGraph to work with
 OpenGL es 2.0 spec and webgl. The first thing you need when working with
 big mesh is to split them in bunch of 65536 vertexes because opengl es
 2.0 speccification limit the size of indexes to 16 bits. In order to
@@ -56,27 +59,51 @@ plugin loader is called
 <a href="http://hg.plopbyte.net/osg-trunk/file/1af36d5c6fff/src/osgPlugins/resolve">resolve</a>
 . And the last plugin is osgjs itself that is able to convert osg native
 format to <a href="http://hg.plopbyte.net/osg-trunk/file/1af36d5c6fff/src/osgPlugins/osgjs">osgjs
-format</a>.</p>
-    </div><!-- /.entry-content -->
+format</a>.</p>	
 
-  </article>
-</section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://osgjs.org/">osgjs.org</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-        </section><!-- /#extras -->
+	</article>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="" data-lang="en" data-size="large" data-related="">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+
+		  </div>	
+		  
+		  <div class="sidebar">
+		    <div class="sidebar-container" >
+
+
+  	          <nav>
+	            <h2>Categories</h2>
+	            <ul>
+	                <li ><a href="./category/about.html">About</a></li>
+	                <li class="active"><a href="./category/blog.html">blog</a></li>
+	            </ul>
+	          </nav>
+
+
+	            <aside>
+	              <h2>Blogroll</h2>
+	              <ul>
+	                  <li><a href="http://osgjs.org/">osgjs.org</a></li>
+	              </ul>
+	            </aside>
+	        </div>
+		  </div>
+
+	  </div>
+
+      <footer>
+		<p role="contentinfo">
+		  cedric pinson - Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>. Theme <a href="https://github.com/fle/pelican-sober">pelican-sober</a>.
+    	</p>
+
+	  </footer>	
+
+	</div>
+	
 
 </body>
 </html>
