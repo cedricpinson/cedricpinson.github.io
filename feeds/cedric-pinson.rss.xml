@@ -16,10 +16,8 @@ hashtag).&lt;/p&gt;
 Each has its own speed and specific paths. The user can select any of
 these ships to take advantage of the pilot’s view and explore the scene.
 In this post I will explain how we made it.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/xlarge_nv_2_361c2.jpg" title="xlarge_nv_2_361c2" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/xlarge_nv_3_4b86e.jpg" title="xlarge_nv_3_4b86e" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/xlarge_nv_2_361c2.jpg" title="xlarge_nv_2_361c2" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/xlarge_nv_3_4b86e.jpg" title="xlarge_nv_3_4b86e" /&gt;&lt;/p&gt;
 &lt;p&gt;click for &lt;a href="http://nouvellevague.ultranoir.com/"&gt;real time version here&lt;/a&gt;
 ( after the video intro ). If your browser does not support webgl you
 can watch a &lt;a href="http://youtu.be/HxUwJ_iPdNc"&gt;video version on youtube&lt;/a&gt;&lt;/p&gt;
@@ -28,10 +26,8 @@ can watch a &lt;a href="http://youtu.be/HxUwJ_iPdNc"&gt;video version on youtube
 leave a tweet. We did not want to manage vehicle collisions, after a
 while, we decided to organize scene and vehicles animations like the
 picture below.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/animation_row0.jpg" title="animation_row0" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/animation_row1.jpg" title="animation_row1" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/animation_row0.jpg" title="animation_row0" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/animation_row1.jpg" title="animation_row1" /&gt;&lt;/p&gt;
 &lt;p&gt;The idea is to avoid vehicles to penetrate each other, for this we
 constrained each vehicle in a 'row' in which the animation will be
 played (off course the animation must be setup to fit in that virtual
@@ -59,10 +55,8 @@ into a new one (distance map) then you use a 'special' shader to display
 it in realtime. Below you can see picture from the &lt;a href="http://www.valvesoftware.com/publications/2007/SIGGRAPH2007_AlphaTestedMagnification.pdf"&gt;Valve
 paper&lt;/a&gt;,
 both image are at the same resolution.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/valve_0.png" title="valve_0" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/valve_12.png" title="valve_1" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/valve_0.png" title="valve_0" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/valve_12.png" title="valve_1" /&gt;&lt;/p&gt;
 &lt;p&gt;(Pictures from valve paper)&lt;/p&gt;
 &lt;p&gt;The only problem I had was for the big text/logo in center of the scene,
 even with distance map I had aliasing because of the static 'edge size'
@@ -95,10 +89,8 @@ their animation, and select the vehicles that has a time in 'good'
 range. Off course we had to tune the range for each animations of
 vehicles. You can see below the differents event in timeline for a
 vehicles.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/02/timeline_0.jpg" title="timeline_0" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/02/timeline_1.jpg" title="timeline_1" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/02/timeline_0.jpg" title="timeline_0" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/02/timeline_1.jpg" title="timeline_1" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Delay Random&lt;/em&gt;: random time before playing vehicle animation.
 &lt;em&gt;Leave tweet&lt;/em&gt;: time when the tweet box leave the vehicle and play the
 transition animation.
@@ -117,10 +109,8 @@ would not follow the plane rotation). To fix this I used a matrix that
 project the shape of the plane onto the ground. Using this method meant
 no soft edges for shadow plus some artifact due to blending. Deadline
 make us to fix it later.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/shadow_issue.jpg" title="shadow_issue" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/shadow_issue2.jpg" title="shadow_issue2" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/shadow_issue.jpg" title="shadow_issue" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/shadow_issue2.jpg" title="shadow_issue2" /&gt;&lt;/p&gt;
 &lt;p&gt;There is a &lt;a href="http://osgjs.org/osgjs/examples/shadow/index.html"&gt;shadow
 example&lt;/a&gt; in
 &lt;a href="http://osgjs.org/"&gt;osgjs&lt;/a&gt; that explains differents shadow techniques.&lt;/p&gt;
@@ -138,10 +128,8 @@ The effect was not optimized and I used one 3d model per cube, that
 would be better to use pseudo instancied cube or pack all cube into one
 model and passing transformation to the shader with attributes or
 uniforms, again time...&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/transition_0.jpg" title="transition_0" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/transition_1.jpg" title="transition_1" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/transition_0.jpg" title="transition_0" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/transition_1.jpg" title="transition_1" /&gt;&lt;/p&gt;
 &lt;h2&gt;Clouds&lt;/h2&gt;
 &lt;p&gt;I wanted to try volumetric clouds on this project. For this I tried
 different method&lt;/p&gt;
@@ -163,10 +151,8 @@ different method&lt;/p&gt;
 &lt;/ul&gt;
 &lt;!-- --&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/cloud_0.jpg" title="cloud_0" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2012/01/cloud_1.jpg" title="cloud_1" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/cloud_0.jpg" title="cloud_0" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2012/01/cloud_1.jpg" title="cloud_1" /&gt;&lt;/p&gt;
 &lt;h2&gt;Tools&lt;/h2&gt;
 &lt;p&gt;One of the most important aspect when I worked on this project was how
 we setup and tuned effects. I wrote scripts to export 3d models,
@@ -219,10 +205,8 @@ floating point texture. In fact we can use an extension but I wanted to
 make it works on most browser with webgl so I did not use the extension.
 The consequence is that particles coordinates has to be encoded in
 specific format on rgba pixels.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/11/buffers.jpg" title="SAMSUNG" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/11/pixels.jpg" title="SAMSUNG" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/11/buffers.jpg" title="SAMSUNG" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/11/pixels.jpg" title="SAMSUNG" /&gt;&lt;/p&gt;
 &lt;p&gt;In my previous &lt;a href="/webgl-particles.html"&gt;particles
 toy&lt;/a&gt; I used 16 bits fixed
 point to encode coordinates, but on this one I wanted to improve it and
@@ -284,10 +268,8 @@ position to fit the shape I want, eg:&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/11/Title.jpg" title="Title" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/11/Title_grad.jpg" title="Title_grad" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/11/Title.jpg" title="Title" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/11/Title_grad.jpg" title="Title_grad" /&gt;&lt;/p&gt;
 &lt;p&gt;This technique was used for most of the motions/shapes I wanted the
 particles to fit in. I tried to manipulate particles manually but it was
 too complex and I was not able to do what I wanted to. Distance maps is
@@ -372,10 +354,8 @@ kept some of them for history :)&lt;/p&gt;
 &lt;p&gt;I started off by creating a file system similar to the 3D file system
 used in Jurassic Park. I had to figure out the best type of camera that
 would be suitable to use with the system.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/03/camera-1.jpg" title="Camera" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/03/camera-0.jpg" title="Camera" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/03/camera-1.jpg" title="Camera" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/03/camera-0.jpg" title="Camera" /&gt;&lt;/p&gt;
 &lt;p&gt;The idea is simple. Let's say a user selects the item &lt;strong&gt;B&lt;/strong&gt; . When
 selected, the camera moves from its current viewpoint to the chosen
 item. The position of the camera (&lt;strong&gt;C&lt;/strong&gt;) is in orbit relative to the
@@ -417,10 +397,8 @@ sphere. Before projecting those data, however, I had to tesselate the
 triangles in order to have enough vertex to project a clean shape on the
 sphere. For this I have created a tool called 'grid'. It tessellates the
 input shape with a grid. It's a kind of boolean union operation.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/03/grid.jpg" title="grid" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/03/grid0.jpg" title="grid0" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/03/grid.jpg" title="grid" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/03/grid0.jpg" title="grid0" /&gt;&lt;/p&gt;
 &lt;p&gt;Above on the left, you can see the white model that is the original
 '110m admin 0 countries.shp'. The black model is the same model but
 tesselated a bit more to fit more closely on the sphere. On the right is
@@ -431,12 +409,10 @@ the model.&lt;/p&gt;
 vertex onto a sphere using the standard &lt;a href="http://en.wikipedia.org/wiki/WGS84"&gt;WGS84
 projection&lt;/a&gt;. &lt;strong&gt;You can see a webgl
 version of the projected model by clicking on the picture&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/03/globe-2.jpg" title="globe-2" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/03/globe-1.jpg" title="globe-1" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/03/globe-0.jpg" title="globe-0" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/03/globe-4.jpg" title="globe-4" /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/03/globe-2.jpg" title="globe-2" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/03/globe-1.jpg" title="globe-1" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/03/globe-0.jpg" title="globe-0" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/03/globe-4.jpg" title="globe-4" /&gt;&lt;/p&gt;
 &lt;p&gt;Once the data below were ready we selected a nice color for each model.
 On the demo I drew the globe in two passes. The first pass drew back
 faces of '110m admin 0 countries' with 'back color' and the second drew
@@ -660,10 +636,8 @@ Guillaume Lecollinet who designed this demo.&lt;/p&gt;</description><dc:creator 
 and an overview of code inside the application. I did the slides with
 &lt;a href="http://paulrouget.com/e/introdzslides/"&gt;dzslides&lt;/a&gt; from Paul Rouget,
 thanks for this tool :)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="demo/insideglobetweeter/"&gt;&lt;img alt="" src="media/2011/04/slides1.jpg" title="slides1" /&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="demo/insideglobetweeter/"&gt;&lt;img alt="" src="media/2011/04/slides0.jpg" title="slides0" /&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Wed, 27 Apr 2011 17:15:00 +0200</pubDate><guid>tag:,2011-04-27:parisjs-inside-globetweeter.html</guid></item><item><title>OpenSceneGraph tools for OpenGL es 2.0</title><link>/openscenegraph-tools-for-opengl-es-2-0.html</link><description>&lt;p&gt;I have done plugins and pseudo loader for OpenSceneGraph to work with
+&lt;p&gt;&lt;a href="demo/insideglobetweeter/"&gt;&lt;img alt="" src="media/2011/04/slides1.jpg" title="slides1" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="demo/insideglobetweeter/"&gt;&lt;img alt="" src="media/2011/04/slides0.jpg" title="slides0" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Wed, 27 Apr 2011 17:15:00 +0200</pubDate><guid>tag:,2011-04-27:parisjs-inside-globetweeter.html</guid></item><item><title>OpenSceneGraph tools for OpenGL es 2.0</title><link>/openscenegraph-tools-for-opengl-es-2-0.html</link><description>&lt;p&gt;I have done plugins and pseudo loader for OpenSceneGraph to work with
 OpenGL es 2.0 spec and webgl. The first thing you need when working with
 big mesh is to split them in bunch of 65536 vertexes because opengl es
 2.0 speccification limit the size of indexes to 16 bits. In order to
@@ -707,10 +681,8 @@ it convert it to osg.js . If you have a modern browser with
 &lt;a href="http://khronos.org/webgl/wiki/Getting_a_WebGL_Implementation"&gt;WebGL&lt;/a&gt;,
 have a try with &lt;a href="demo/veditor/"&gt;real time version&lt;/a&gt; or try
 the video on &lt;a href="http://www.youtube.com/watch?v=kMAqplEhnOA"&gt;youtube&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/03/screen0.jpg" title="screen0" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2011/03/screen1.jpg" title="screen1" /&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Fri, 11 Mar 2011 19:04:00 +0100</pubDate><guid>tag:,2011-03-11:vehicle-editor.html</guid></item><item><title>stats.js</title><link>/stats-js.html</link><description>&lt;p&gt;I have written this afternoon a little class to manage graph, for
+&lt;p&gt;&lt;img alt="" src="media/2011/03/screen0.jpg" title="screen0" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2011/03/screen1.jpg" title="screen1" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Fri, 11 Mar 2011 19:04:00 +0100</pubDate><guid>tag:,2011-03-11:vehicle-editor.html</guid></item><item><title>stats.js</title><link>/stats-js.html</link><description>&lt;p&gt;I have written this afternoon a little class to manage graph, for
 &lt;a href="http://osgjs.org"&gt;osg.js&lt;/a&gt; I will need to graph the update/cull/draw
 traversal and I guess more others things, so I needed a stats
 functionnality a bit like in
@@ -737,9 +709,7 @@ The project needs users and contributors, so want to help ? Go to
 am happy for having reviewed the technical part of this book and I
 recommand it for all beginners who wanted to start quickly on
 &lt;a href="http://openscenegraph.org"&gt;OpenSceneGraph&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.packtpub.com/openscenegraph-3-0-beginners-guide/book"&gt;&lt;img alt="" src="media/2011/01/BeginnersGuide.png" title="BeginnersGuide" /&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Thu, 27 Jan 2011 15:57:00 +0100</pubDate><guid>tag:,2011-01-27:openscenegraph-beginners-book.html</guid></item><item><title>WebGL Particles</title><link>/webgl-particles.html</link><description>&lt;p&gt;I have played with render to texture to generate particles with physics,
+&lt;p&gt;&lt;a href="https://www.packtpub.com/openscenegraph-3-0-beginners-guide/book"&gt;&lt;img alt="" src="media/2011/01/BeginnersGuide.png" title="BeginnersGuide" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Thu, 27 Jan 2011 15:57:00 +0100</pubDate><guid>tag:,2011-01-27:openscenegraph-beginners-book.html</guid></item><item><title>WebGL Particles</title><link>/webgl-particles.html</link><description>&lt;p&gt;I have played with render to texture to generate particles with physics,
 the idea is to compute particles position on the gpu and use it as input
 to render them. For this I have use the firefox logo in 512x512 so we
 have 262144 particles animated even if somes are invisibles. You can
@@ -754,10 +724,8 @@ texture with floating point support.&lt;/p&gt;
 &lt;a href="http://www.khronos.org/webgl/wiki/Getting_a_WebGL_Implementation"&gt;http://www.khronos.org/webgl/wiki/Getting_a_WebGL_Implementation&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You need a browser able to run webGL to try the &lt;a href="demo/webgl-particles-demo/"&gt;realtime version&lt;/a&gt;
 or use youtube&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.youtube.com/watch?v=ShrUOL1V-xc"&gt;&lt;img alt="" src="media/2010/08/screen2.jpg" title="Screenshot-2" /&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.youtube.com/watch?v=ShrUOL1V-xc"&gt;&lt;img alt="" src="media/2010/08/screen0.jpg" title="Screenshot-0" /&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Tue, 17 Aug 2010 01:24:00 +0200</pubDate><guid>tag:,2010-08-17:webgl-particles.html</guid></item><item><title>ArtGame Weekend</title><link>/artgame-weekend.html</link><description>&lt;p&gt;A Month ago, we have participated to the &lt;a href="http://artgameweekend.com/"&gt;artgame
+&lt;p&gt;&lt;a href="http://www.youtube.com/watch?v=ShrUOL1V-xc"&gt;&lt;img alt="" src="media/2010/08/screen2.jpg" title="Screenshot-2" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.youtube.com/watch?v=ShrUOL1V-xc"&gt;&lt;img alt="" src="media/2010/08/screen0.jpg" title="Screenshot-0" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Tue, 17 Aug 2010 01:24:00 +0200</pubDate><guid>tag:,2010-08-17:webgl-particles.html</guid></item><item><title>ArtGame Weekend</title><link>/artgame-weekend.html</link><description>&lt;p&gt;A Month ago, we have participated to the &lt;a href="http://artgameweekend.com/"&gt;artgame
 weekend&lt;/a&gt; . The idea is to make a game in 48h
 on a mobile platform. I joined Chen to work on her concept, the idea was
 to use a guitar hero gameplay on an Hitler speech. The concept is strong
@@ -776,10 +744,8 @@ adjust/change some part.&lt;/p&gt;
 &lt;p&gt;links:&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.androlib.com/android.application.com-artgame-triumph-jxACz.aspx"&gt;adroidlib&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.androidzoom.com/android_games/casual/triumph-of-the-word_ijqc.html"&gt;androidzoom&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.youtube.com/watch?v=roN9HsVh1zo"&gt;&lt;img alt="" src="media/2010/07/screen1.jpg" title="screen1" /&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://market.android.com/details?id=com.artgame.triumph"&gt;&lt;img alt="" src="media/2010/07/chart.jpg" title="chart" /&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 05 Jul 2010 22:37:00 +0200</pubDate><guid>tag:,2010-07-05:artgame-weekend.html</guid></item><item><title>WebGL OpenSceneGraph</title><link>/webgl-openscenegraph.html</link><description>&lt;p&gt;I am currently experimenting WebGL. I work with OpenSceneGraph and
+&lt;p&gt;&lt;a href="http://www.youtube.com/watch?v=roN9HsVh1zo"&gt;&lt;img alt="" src="media/2010/07/screen1.jpg" title="screen1" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://market.android.com/details?id=com.artgame.triumph"&gt;&lt;img alt="" src="media/2010/07/chart.jpg" title="chart" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 05 Jul 2010 22:37:00 +0200</pubDate><guid>tag:,2010-07-05:artgame-weekend.html</guid></item><item><title>WebGL OpenSceneGraph</title><link>/webgl-openscenegraph.html</link><description>&lt;p&gt;I am currently experimenting WebGL. I work with OpenSceneGraph and
 wanted to try something equivalent in javascript. Even though javscript
 is slower than C++ i wanted to try a proof of concept with WebGL and
 create a library similar to OpenSceneGraph. After experimenting a bit, i
@@ -799,10 +765,8 @@ a lot of improvement will come soon.&lt;/p&gt;
 &lt;a href="http://www.khronos.org/webgl/wiki/GettingaWebGL_Implementation"&gt;http://www.khronos.org/webgl/wiki/GettingaWebGL_Implementation&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You have a browser that is able to run webGL try the realtime version
 &lt;demo/demo-room-osg-js&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;img alt="" src="media/2010/04/Screenshot_0.jpg" title="Screenshot_0" /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;img alt="" src="media/2010/04/Screenshot_1.jpg" title="Screenshot_1" /&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Sat, 17 Apr 2010 17:51:00 +0200</pubDate><guid>tag:,2010-04-17:webgl-openscenegraph.html</guid></item><item><title>Global Game Jam 2010</title><link>/global-game-jam-2010.html</link><description>&lt;p&gt;We participated in the global game jam 2010. The idea was to create an
+&lt;p&gt;&lt;img alt="" src="media/2010/04/Screenshot_0.jpg" title="Screenshot_0" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="media/2010/04/Screenshot_1.jpg" title="Screenshot_1" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Sat, 17 Apr 2010 17:51:00 +0200</pubDate><guid>tag:,2010-04-17:webgl-openscenegraph.html</guid></item><item><title>Global Game Jam 2010</title><link>/global-game-jam-2010.html</link><description>&lt;p&gt;We participated in the global game jam 2010. The idea was to create an
 entire (small) game in 48 hours with a given theme. This year the theme
 was 'seduction and deception'. Our game was called
 PrincessKunKunPechoPecho and was created with the blender game engine so

@@ -50,10 +50,8 @@ hashtag).</p>
 Each has its own speed and specific paths. The user can select any of
 these ships to take advantage of the pilot’s view and explore the scene.
 In this post I will explain how we made it.</p>
-<ul>
-<li><img alt="" src="media/2012/01/xlarge_nv_2_361c2.jpg" title="xlarge_nv_2_361c2" /></li>
-<li><img alt="" src="media/2012/01/xlarge_nv_3_4b86e.jpg" title="xlarge_nv_3_4b86e" /></li>
-</ul>
+<p><img alt="" src="media/2012/01/xlarge_nv_2_361c2.jpg" title="xlarge_nv_2_361c2" /></p>
+<p><img alt="" src="media/2012/01/xlarge_nv_3_4b86e.jpg" title="xlarge_nv_3_4b86e" /></p>
 <p>click for <a href="http://nouvellevague.ultranoir.com/">real time version here</a>
 ( after the video intro ). If your browser does not support webgl you
 can watch a <a href="http://youtu.be/HxUwJ_iPdNc">video version on youtube</a></p>
@@ -62,10 +60,8 @@ can watch a <a href="http://youtu.be/HxUwJ_iPdNc">video version on youtube</a></
 leave a tweet. We did not want to manage vehicle collisions, after a
 while, we decided to organize scene and vehicles animations like the
 picture below.</p>
-<ul>
-<li><img alt="" src="media/2012/01/animation_row0.jpg" title="animation_row0" /></li>
-<li><img alt="" src="media/2012/01/animation_row1.jpg" title="animation_row1" /></li>
-</ul>
+<p><img alt="" src="media/2012/01/animation_row0.jpg" title="animation_row0" /></p>
+<p><img alt="" src="media/2012/01/animation_row1.jpg" title="animation_row1" /></p>
 <p>The idea is to avoid vehicles to penetrate each other, for this we
 constrained each vehicle in a 'row' in which the animation will be
 played (off course the animation must be setup to fit in that virtual
@@ -93,10 +89,8 @@ into a new one (distance map) then you use a 'special' shader to display
 it in realtime. Below you can see picture from the <a href="http://www.valvesoftware.com/publications/2007/SIGGRAPH2007_AlphaTestedMagnification.pdf">Valve
 paper</a>,
 both image are at the same resolution.</p>
-<ul>
-<li><img alt="" src="media/2012/01/valve_0.png" title="valve_0" /></li>
-<li><img alt="" src="media/2012/01/valve_12.png" title="valve_1" /></li>
-</ul>
+<p><img alt="" src="media/2012/01/valve_0.png" title="valve_0" /></p>
+<p><img alt="" src="media/2012/01/valve_12.png" title="valve_1" /></p>
 <p>(Pictures from valve paper)</p>
 <p>The only problem I had was for the big text/logo in center of the scene,
 even with distance map I had aliasing because of the static 'edge size'
@@ -129,10 +123,8 @@ their animation, and select the vehicles that has a time in 'good'
 range. Off course we had to tune the range for each animations of
 vehicles. You can see below the differents event in timeline for a
 vehicles.</p>
-<ul>
-<li><img alt="" src="media/2012/02/timeline_0.jpg" title="timeline_0" /></li>
-<li><img alt="" src="media/2012/02/timeline_1.jpg" title="timeline_1" /></li>
-</ul>
+<p><img alt="" src="media/2012/02/timeline_0.jpg" title="timeline_0" /></p>
+<p><img alt="" src="media/2012/02/timeline_1.jpg" title="timeline_1" /></p>
 <p><em>Delay Random</em>: random time before playing vehicle animation.
 <em>Leave tweet</em>: time when the tweet box leave the vehicle and play the
 transition animation.
@@ -151,10 +143,8 @@ would not follow the plane rotation). To fix this I used a matrix that
 project the shape of the plane onto the ground. Using this method meant
 no soft edges for shadow plus some artifact due to blending. Deadline
 make us to fix it later.</p>
-<ul>
-<li><img alt="" src="media/2012/01/shadow_issue.jpg" title="shadow_issue" /></li>
-<li><img alt="" src="media/2012/01/shadow_issue2.jpg" title="shadow_issue2" /></li>
-</ul>
+<p><img alt="" src="media/2012/01/shadow_issue.jpg" title="shadow_issue" /></p>
+<p><img alt="" src="media/2012/01/shadow_issue2.jpg" title="shadow_issue2" /></p>
 <p>There is a <a href="http://osgjs.org/osgjs/examples/shadow/index.html">shadow
 example</a> in
 <a href="http://osgjs.org/">osgjs</a> that explains differents shadow techniques.</p>
@@ -172,10 +162,8 @@ The effect was not optimized and I used one 3d model per cube, that
 would be better to use pseudo instancied cube or pack all cube into one
 model and passing transformation to the shader with attributes or
 uniforms, again time...</p>
-<ul>
-<li><img alt="" src="media/2012/01/transition_0.jpg" title="transition_0" /></li>
-<li><img alt="" src="media/2012/01/transition_1.jpg" title="transition_1" /></li>
-</ul>
+<p><img alt="" src="media/2012/01/transition_0.jpg" title="transition_0" /></p>
+<p><img alt="" src="media/2012/01/transition_1.jpg" title="transition_1" /></p>
 <h2>Clouds</h2>
 <p>I wanted to try volumetric clouds on this project. For this I tried
 different method</p>
@@ -197,10 +185,8 @@ different method</p>
 </ul>
 <!-- -->
 
-<ul>
-<li><img alt="" src="media/2012/01/cloud_0.jpg" title="cloud_0" /></li>
-<li><img alt="" src="media/2012/01/cloud_1.jpg" title="cloud_1" /></li>
-</ul>
+<p><img alt="" src="media/2012/01/cloud_0.jpg" title="cloud_0" /></p>
+<p><img alt="" src="media/2012/01/cloud_1.jpg" title="cloud_1" /></p>
 <h2>Tools</h2>
 <p>One of the most important aspect when I worked on this project was how
 we setup and tuned effects. I wrote scripts to export 3d models,
