@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cedricpinson</title><link>/</link><description></description><atom:link href="/feeds/cedric-pinson.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 04 Jul 2012 11:19:00 +0200</lastBuildDate><item><title>WebGL Camp</title><link>/webgl-camp.html</link><description>&lt;p&gt;I did a talk at webgl camp in switzerland, that was really nice to meet
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cedricpinson</title><link>http://cedricpinson.com/</link><description>Hunting dog computer programmer</description><atom:link href="http://cedricpinson.com/feeds/cedric-pinson.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 04 Jul 2012 11:19:00 +0200</lastBuildDate><item><title>WebGL Camp</title><link>http://cedricpinson.com/webgl-camp.html</link><description>&lt;p&gt;I did a talk at webgl camp in switzerland, that was really nice to meet
 other people doing webgl stuff. Amazing projects seen there like quake4
 in the browser, the nokia demo, really interesting projects. I talked
 about how shaders were generated in sketchfab.com and you can find my
 slides &lt;a href="demo/webglcamp-shader-generation"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;For the list of all talk have look on the
 &lt;a href="http://www.shader.org/webglcamp/"&gt;website&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Hope to meet webgl campers again in a session in europe.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Wed, 04 Jul 2012 11:19:00 +0200</pubDate><guid>tag:,2012-07-04:webgl-camp.html</guid></item><item><title>Nouvelle Vague</title><link>/nouvelle-vague.html</link><description>&lt;p&gt;Nouvelle Vague is a project I worked on for ultranoir, It offers a
+&lt;p&gt;Hope to meet webgl campers again in a session in europe.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Wed, 04 Jul 2012 11:19:00 +0200</pubDate><guid>tag:cedricpinson.com,2012-07-04:webgl-camp.html</guid></item><item><title>Nouvelle Vague</title><link>http://cedricpinson.com/nouvelle-vague.html</link><description>&lt;p&gt;Nouvelle Vague is a project I worked on for ultranoir, It offers a
 poetic and interactive real-time 3D experience based on Twitter. In a
 minimalist and surrealist world, Tweets are carried out with different
 flying objects from the borders of the scene to the center where stands
@@ -172,7 +172,7 @@ convenient to let artist worked this way. You can see on the screenshot
 below the sliders used to fine tune the rendering effects.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="media/2012/01/sliders.jpg" title="sliders" /&gt;&lt;/p&gt;
 &lt;p&gt;You can try the &lt;a href="demo/nouvellevague/"&gt;developer
-version&lt;/a&gt; and play with sliders&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 20 Feb 2012 17:06:00 +0100</pubDate><guid>tag:,2012-02-20:nouvelle-vague.html</guid></item><item><title>DemoJS</title><link>/demojs.html</link><description>&lt;p&gt;We had a meeting a few months ago before the demojs event in Paris to
+version&lt;/a&gt; and play with sliders&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 20 Feb 2012 17:06:00 +0100</pubDate><guid>tag:cedricpinson.com,2012-02-20:nouvelle-vague.html</guid></item><item><title>DemoJS</title><link>http://cedricpinson.com/demojs.html</link><description>&lt;p&gt;We had a meeting a few months ago before the demojs event in Paris to
 organize it. I worked on the
 &lt;a href="demojs-fff/"&gt;intro&lt;/a&gt; to announce the event 10
 days before the deadline. 4 of us made this intro: Guillaume Lecollinet
@@ -183,7 +183,7 @@ need to read this &lt;a href="http://directtovideo.wordpress.com/"&gt;blog&lt;/a
 does awesome things.&lt;/p&gt;
 &lt;h2&gt;Particles again&lt;/h2&gt;
 &lt;p&gt;At the beginning I did not really know what I wanted to create. I wanted
-to work on particles but with more complexity than my &lt;a href="/webgl-particles.html"&gt;previous
+to work on particles but with more complexity than my &lt;a href="http://cedricpinson.com/webgl-particles.html"&gt;previous
 toy&lt;/a&gt;. Finally I did an
 intro only with particles. The consequence is that the entire intro used
 the same shader, I will describe the following stuff I used into the
@@ -207,7 +207,7 @@ The consequence is that particles coordinates has to be encoded in
 specific format on rgba pixels.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="media/2011/11/buffers.jpg" title="SAMSUNG" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="media/2011/11/pixels.jpg" title="SAMSUNG" /&gt;&lt;/p&gt;
-&lt;p&gt;In my previous &lt;a href="/webgl-particles.html"&gt;particles
+&lt;p&gt;In my previous &lt;a href="http://cedricpinson.com/webgl-particles.html"&gt;particles
 toy&lt;/a&gt; I used 16 bits fixed
 point to encode coordinates, but on this one I wanted to improve it and
 try 24 bits to have more precision, I encoded more informations like
@@ -340,7 +340,7 @@ elements.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;Thanks for people who helps to make this webgl intro it was really fun.
 The most stuff I liked was the good ambience of the team, that was
-really cool. Thank you guys :)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Tue, 27 Dec 2011 00:00:00 +0100</pubDate><guid>tag:,2011-12-27:demojs.html</guid></item><item><title>GlobeTweeter - Experience</title><link>/globetweeter-experience.html</link><description>&lt;p&gt;Over the last few months, I have been working on a webgl demo for
+really cool. Thank you guys :)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Tue, 27 Dec 2011 00:00:00 +0100</pubDate><guid>tag:cedricpinson.com,2011-12-27:demojs.html</guid></item><item><title>GlobeTweeter - Experience</title><link>http://cedricpinson.com/globetweeter-experience.html</link><description>&lt;p&gt;Over the last few months, I have been working on a webgl demo for
 firefox. The objective was to create a demo to showcase webgl
 technology. I am currently working on a 3D framework called
 &lt;a href="http://osgjs.org"&gt;osgjs&lt;/a&gt; so the application uses this javascript
@@ -631,13 +631,13 @@ the cumulated number of connections.&lt;/p&gt;
 &lt;li&gt;&lt;a href="demo/insideglobetweeter/"&gt;conf at parisjs#6&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;A big thanks to Paul Rouget from Mozilla who made this demo possible and
-Guillaume Lecollinet who designed this demo.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Tue, 03 May 2011 10:47:00 +0200</pubDate><guid>tag:,2011-05-03:globetweeter-experience.html</guid></item><item><title>ParisJS - Inside GlobeTweeter</title><link>/parisjs-inside-globetweeter.html</link><description>&lt;p&gt;For &lt;a href="http://parisjs.org/"&gt;ParisJS&lt;/a&gt; #6 I did a conference about
+Guillaume Lecollinet who designed this demo.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Tue, 03 May 2011 10:47:00 +0200</pubDate><guid>tag:cedricpinson.com,2011-05-03:globetweeter-experience.html</guid></item><item><title>ParisJS - Inside GlobeTweeter</title><link>http://cedricpinson.com/parisjs-inside-globetweeter.html</link><description>&lt;p&gt;For &lt;a href="http://parisjs.org/"&gt;ParisJS&lt;/a&gt; #6 I did a conference about
 &lt;a href="https://mozillademos.org/demos/globetweeter/demo.html"&gt;GlobeTweeter&lt;/a&gt;,
 and an overview of code inside the application. I did the slides with
 &lt;a href="http://paulrouget.com/e/introdzslides/"&gt;dzslides&lt;/a&gt; from Paul Rouget,
 thanks for this tool :)&lt;/p&gt;
 &lt;p&gt;&lt;a href="demo/insideglobetweeter/"&gt;&lt;img alt="" src="media/2011/04/slides1.jpg" title="slides1" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="demo/insideglobetweeter/"&gt;&lt;img alt="" src="media/2011/04/slides0.jpg" title="slides0" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Wed, 27 Apr 2011 17:15:00 +0200</pubDate><guid>tag:,2011-04-27:parisjs-inside-globetweeter.html</guid></item><item><title>OpenSceneGraph tools for OpenGL es 2.0</title><link>/openscenegraph-tools-for-opengl-es-2-0.html</link><description>&lt;p&gt;I have done plugins and pseudo loader for OpenSceneGraph to work with
+&lt;p&gt;&lt;a href="demo/insideglobetweeter/"&gt;&lt;img alt="" src="media/2011/04/slides0.jpg" title="slides0" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Wed, 27 Apr 2011 17:15:00 +0200</pubDate><guid>tag:cedricpinson.com,2011-04-27:parisjs-inside-globetweeter.html</guid></item><item><title>OpenSceneGraph tools for OpenGL es 2.0</title><link>http://cedricpinson.com/openscenegraph-tools-for-opengl-es-2-0.html</link><description>&lt;p&gt;I have done plugins and pseudo loader for OpenSceneGraph to work with
 OpenGL es 2.0 spec and webgl. The first thing you need when working with
 big mesh is to split them in bunch of 65536 vertexes because opengl es
 2.0 speccification limit the size of indexes to 16 bits. In order to
@@ -656,7 +656,7 @@ plugin loader is called
 &lt;a href="http://hg.plopbyte.net/osg-trunk/file/1af36d5c6fff/src/osgPlugins/resolve"&gt;resolve&lt;/a&gt;
 . And the last plugin is osgjs itself that is able to convert osg native
 format to &lt;a href="http://hg.plopbyte.net/osg-trunk/file/1af36d5c6fff/src/osgPlugins/osgjs"&gt;osgjs
-format&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Thu, 14 Apr 2011 11:37:00 +0200</pubDate><guid>tag:,2011-04-14:openscenegraph-tools-for-opengl-es-2-0.html</guid></item><item><title>ShowWebGL</title><link>/showwebgl.html</link><description>&lt;p&gt;I have put online &lt;a href="http://showwebgl.com"&gt;http://showwebgl.com&lt;/a&gt; it's a website for artists and
+format&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Thu, 14 Apr 2011 11:37:00 +0200</pubDate><guid>tag:cedricpinson.com,2011-04-14:openscenegraph-tools-for-opengl-es-2-0.html</guid></item><item><title>ShowWebGL</title><link>http://cedricpinson.com/showwebgl.html</link><description>&lt;p&gt;I have put online &lt;a href="http://showwebgl.com"&gt;http://showwebgl.com&lt;/a&gt; it's a website for artists and
 developers who want to show and share their models. The workflow is
 really simple you have a model you want to show to people. Upload it and
 get the url of the model, then share the url or embed the model in an
@@ -672,7 +672,7 @@ bsp, osg&lt;/p&gt;
 &lt;p&gt;You can add texture putting everything inside a zip archive, for example
 you can put your collada model and its texture inside a zip then upload
 the zip file.&lt;/p&gt;
-&lt;p&gt;The back end use OpenSceneGraph :)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 04 Apr 2011 00:18:00 +0200</pubDate><guid>tag:,2011-04-04:showwebgl.html</guid></item><item><title>Vehicle Editor</title><link>/vehicle-editor.html</link><description>&lt;p&gt;Since I experimented webgl stuff, some clients start to think seriously
+&lt;p&gt;The back end use OpenSceneGraph :)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 04 Apr 2011 00:18:00 +0200</pubDate><guid>tag:cedricpinson.com,2011-04-04:showwebgl.html</guid></item><item><title>Vehicle Editor</title><link>http://cedricpinson.com/vehicle-editor.html</link><description>&lt;p&gt;Since I experimented webgl stuff, some clients start to think seriously
 to make 3d apps on the web. For one of them I have done a Vehicle
 Editor. The idea is to select a chassis and customize it with different
 element you can plug on it.
@@ -682,7 +682,7 @@ it convert it to osg.js . If you have a modern browser with
 have a try with &lt;a href="demo/veditor/"&gt;real time version&lt;/a&gt; or try
 the video on &lt;a href="http://www.youtube.com/watch?v=kMAqplEhnOA"&gt;youtube&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="media/2011/03/screen0.jpg" title="screen0" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="media/2011/03/screen1.jpg" title="screen1" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Fri, 11 Mar 2011 19:04:00 +0100</pubDate><guid>tag:,2011-03-11:vehicle-editor.html</guid></item><item><title>stats.js</title><link>/stats-js.html</link><description>&lt;p&gt;I have written this afternoon a little class to manage graph, for
+&lt;p&gt;&lt;img alt="" src="media/2011/03/screen1.jpg" title="screen1" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Fri, 11 Mar 2011 19:04:00 +0100</pubDate><guid>tag:cedricpinson.com,2011-03-11:vehicle-editor.html</guid></item><item><title>stats.js</title><link>http://cedricpinson.com/stats-js.html</link><description>&lt;p&gt;I have written this afternoon a little class to manage graph, for
 &lt;a href="http://osgjs.org"&gt;osg.js&lt;/a&gt; I will need to graph the update/cull/draw
 traversal and I guess more others things, so I needed a stats
 functionnality a bit like in
@@ -696,7 +696,7 @@ better performance but it was cool to code it. You can see the result
 only problem I could see is that the line are not as clean as it could
 because they are not connect from a full path, and the consequence is
 that antialias can't work on the full path.&lt;/p&gt;
-&lt;p&gt;&lt;a href="demo/stats.js/"&gt;&lt;img alt="" src="media/2011/02/Screenshot-12.jpg" title="Screenshot-12" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Tue, 15 Feb 2011 00:11:00 +0100</pubDate><guid>tag:,2011-02-15:stats-js.html</guid></item><item><title>osg.js</title><link>/osgjs.html</link><description>&lt;p&gt;Since I play with WebGL, I wanted a way to work as I do with
+&lt;p&gt;&lt;a href="demo/stats.js/"&gt;&lt;img alt="" src="media/2011/02/Screenshot-12.jpg" title="Screenshot-12" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Tue, 15 Feb 2011 00:11:00 +0100</pubDate><guid>tag:cedricpinson.com,2011-02-15:stats-js.html</guid></item><item><title>osg.js</title><link>http://cedricpinson.com/osgjs.html</link><description>&lt;p&gt;Since I play with WebGL, I wanted a way to work as I do with
 &lt;a href="http://openscenegraph.org"&gt;OpenSceneGraph&lt;/a&gt;. So I started to write a
 subset of &lt;a href="http://openscenegraph.org"&gt;OpenSceneGraph&lt;/a&gt; in javascript that
 uses same concept. For this I have done a plugin for
@@ -705,11 +705,11 @@ graph to osgjs json format. &lt;a href="http://osgjs.org"&gt;osgjs.org&lt;/a&gt;
 still ready to be used for project, I have created
 &lt;a href="http://osgjs.org"&gt;osgjs.org&lt;/a&gt; to centralize information related to it.
 The project needs users and contributors, so want to help ? Go to
-&lt;a href="http://osgjs.org"&gt;osgjs.org&lt;/a&gt; and try it.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 14 Feb 2011 23:48:00 +0100</pubDate><guid>tag:,2011-02-14:osgjs.html</guid></item><item><title>OpenSceneGraph beginners book</title><link>/openscenegraph-beginners-book.html</link><description>&lt;p&gt;Packt Publishing have published a new OpenSceneGraph beginners book, I
+&lt;a href="http://osgjs.org"&gt;osgjs.org&lt;/a&gt; and try it.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 14 Feb 2011 23:48:00 +0100</pubDate><guid>tag:cedricpinson.com,2011-02-14:osgjs.html</guid></item><item><title>OpenSceneGraph beginners book</title><link>http://cedricpinson.com/openscenegraph-beginners-book.html</link><description>&lt;p&gt;Packt Publishing have published a new OpenSceneGraph beginners book, I
 am happy for having reviewed the technical part of this book and I
 recommand it for all beginners who wanted to start quickly on
 &lt;a href="http://openscenegraph.org"&gt;OpenSceneGraph&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.packtpub.com/openscenegraph-3-0-beginners-guide/book"&gt;&lt;img alt="" src="media/2011/01/BeginnersGuide.png" title="BeginnersGuide" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Thu, 27 Jan 2011 15:57:00 +0100</pubDate><guid>tag:,2011-01-27:openscenegraph-beginners-book.html</guid></item><item><title>WebGL Particles</title><link>/webgl-particles.html</link><description>&lt;p&gt;I have played with render to texture to generate particles with physics,
+&lt;p&gt;&lt;a href="https://www.packtpub.com/openscenegraph-3-0-beginners-guide/book"&gt;&lt;img alt="" src="media/2011/01/BeginnersGuide.png" title="BeginnersGuide" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Thu, 27 Jan 2011 15:57:00 +0100</pubDate><guid>tag:cedricpinson.com,2011-01-27:openscenegraph-beginners-book.html</guid></item><item><title>WebGL Particles</title><link>http://cedricpinson.com/webgl-particles.html</link><description>&lt;p&gt;I have played with render to texture to generate particles with physics,
 the idea is to compute particles position on the gpu and use it as input
 to render them. For this I have use the firefox logo in 512x512 so we
 have 262144 particles animated even if somes are invisibles. You can
@@ -725,7 +725,7 @@ texture with floating point support.&lt;/p&gt;
 &lt;p&gt;You need a browser able to run webGL to try the &lt;a href="demo/webgl-particles-demo/"&gt;realtime version&lt;/a&gt;
 or use youtube&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.youtube.com/watch?v=ShrUOL1V-xc"&gt;&lt;img alt="" src="media/2010/08/screen2.jpg" title="Screenshot-2" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.youtube.com/watch?v=ShrUOL1V-xc"&gt;&lt;img alt="" src="media/2010/08/screen0.jpg" title="Screenshot-0" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Tue, 17 Aug 2010 01:24:00 +0200</pubDate><guid>tag:,2010-08-17:webgl-particles.html</guid></item><item><title>ArtGame Weekend</title><link>/artgame-weekend.html</link><description>&lt;p&gt;A Month ago, we have participated to the &lt;a href="http://artgameweekend.com/"&gt;artgame
+&lt;p&gt;&lt;a href="http://www.youtube.com/watch?v=ShrUOL1V-xc"&gt;&lt;img alt="" src="media/2010/08/screen0.jpg" title="Screenshot-0" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Tue, 17 Aug 2010 01:24:00 +0200</pubDate><guid>tag:cedricpinson.com,2010-08-17:webgl-particles.html</guid></item><item><title>ArtGame Weekend</title><link>http://cedricpinson.com/artgame-weekend.html</link><description>&lt;p&gt;A Month ago, we have participated to the &lt;a href="http://artgameweekend.com/"&gt;artgame
 weekend&lt;/a&gt; . The idea is to make a game in 48h
 on a mobile platform. I joined Chen to work on her concept, the idea was
 to use a guitar hero gameplay on an Hitler speech. The concept is strong
@@ -745,7 +745,7 @@ adjust/change some part.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.androlib.com/android.application.com-artgame-triumph-jxACz.aspx"&gt;adroidlib&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.androidzoom.com/android_games/casual/triumph-of-the-word_ijqc.html"&gt;androidzoom&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.youtube.com/watch?v=roN9HsVh1zo"&gt;&lt;img alt="" src="media/2010/07/screen1.jpg" title="screen1" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://market.android.com/details?id=com.artgame.triumph"&gt;&lt;img alt="" src="media/2010/07/chart.jpg" title="chart" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 05 Jul 2010 22:37:00 +0200</pubDate><guid>tag:,2010-07-05:artgame-weekend.html</guid></item><item><title>WebGL OpenSceneGraph</title><link>/webgl-openscenegraph.html</link><description>&lt;p&gt;I am currently experimenting WebGL. I work with OpenSceneGraph and
+&lt;p&gt;&lt;a href="http://market.android.com/details?id=com.artgame.triumph"&gt;&lt;img alt="" src="media/2010/07/chart.jpg" title="chart" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 05 Jul 2010 22:37:00 +0200</pubDate><guid>tag:cedricpinson.com,2010-07-05:artgame-weekend.html</guid></item><item><title>WebGL OpenSceneGraph</title><link>http://cedricpinson.com/webgl-openscenegraph.html</link><description>&lt;p&gt;I am currently experimenting WebGL. I work with OpenSceneGraph and
 wanted to try something equivalent in javascript. Even though javscript
 is slower than C++ i wanted to try a proof of concept with WebGL and
 create a library similar to OpenSceneGraph. After experimenting a bit, i
@@ -766,7 +766,7 @@ a lot of improvement will come soon.&lt;/p&gt;
 &lt;p&gt;You have a browser that is able to run webGL try the realtime version
 &lt;demo/demo-room-osg-js&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="media/2010/04/Screenshot_0.jpg" title="Screenshot_0" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="media/2010/04/Screenshot_1.jpg" title="Screenshot_1" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Sat, 17 Apr 2010 17:51:00 +0200</pubDate><guid>tag:,2010-04-17:webgl-openscenegraph.html</guid></item><item><title>Global Game Jam 2010</title><link>/global-game-jam-2010.html</link><description>&lt;p&gt;We participated in the global game jam 2010. The idea was to create an
+&lt;p&gt;&lt;img alt="" src="media/2010/04/Screenshot_1.jpg" title="Screenshot_1" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Sat, 17 Apr 2010 17:51:00 +0200</pubDate><guid>tag:cedricpinson.com,2010-04-17:webgl-openscenegraph.html</guid></item><item><title>Global Game Jam 2010</title><link>http://cedricpinson.com/global-game-jam-2010.html</link><description>&lt;p&gt;We participated in the global game jam 2010. The idea was to create an
 entire (small) game in 48 hours with a given theme. This year the theme
 was 'seduction and deception'. Our game was called
 PrincessKunKunPechoPecho and was created with the blender game engine so
@@ -776,7 +776,7 @@ little 48 hours learning about it during the session.. Anyway here is
 the result :)&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.globalgamejam.org/2010/princesskunkunpechopecho"&gt;&lt;img alt="" src="media/2010/04/press.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Have a try
-&lt;a href="http://www.globalgamejam.org/2010/princesskunkunpechopecho"&gt;http://www.globalgamejam.org/2010/princesskunkunpechopecho&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 01 Feb 2010 20:48:00 +0100</pubDate><guid>tag:,2010-02-01:global-game-jam-2010.html</guid></item><item><title>About</title><link>/about.html</link><description>&lt;p&gt;Cedric Pinson has been working in 3D software for over 15 years. He
+&lt;a href="http://www.globalgamejam.org/2010/princesskunkunpechopecho"&gt;http://www.globalgamejam.org/2010/princesskunkunpechopecho&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 01 Feb 2010 20:48:00 +0100</pubDate><guid>tag:cedricpinson.com,2010-02-01:global-game-jam-2010.html</guid></item><item><title>About</title><link>http://cedricpinson.com/about.html</link><description>&lt;p&gt;Cedric Pinson has been working in 3D software for over 15 years. He
 started off his career in the video game industry at Nemosoft in 2000
 and then moved to Mekensleep in 2004. In 2007, he joined Outflop where
 he served as the project leader for 3D client technology. He is a
@@ -788,4 +788,4 @@ Guide&lt;/a&gt;
 as a technical reviewer. Recently, with the introduction of WebGL, he
 created javascript version of OpenSceneGraph known as
 &lt;a href="http://osgjs.org"&gt;osgJS&lt;/a&gt; to bring this api to the web.&lt;/p&gt;
-&lt;p&gt;He now does freelance work using OpenGL and WebGL technologies.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Sun, 06 Dec 2009 22:31:00 +0100</pubDate><guid>tag:,2009-12-06:about.html</guid></item></channel></rss>
+&lt;p&gt;He now does freelance work using OpenGL and WebGL technologies.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Sun, 06 Dec 2009 22:31:00 +0100</pubDate><guid>tag:cedricpinson.com,2009-12-06:about.html</guid></item></channel></rss>
