@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cedricpinson</title><link>http://cedricpinson.com/</link><description>Hunting dog computer programmer</description><atom:link href="http://cedricpinson.com/feeds/cedric-pinson.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 04 Jul 2012 11:19:00 +0200</lastBuildDate><item><title>WebGL Camp</title><link>http://cedricpinson.com/webgl-camp.html</link><description>&lt;p&gt;I did a talk at webgl camp in switzerland, that was really nice to meet
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cedric Pinson</title><link>http://cedricpinson.com/</link><description></description><atom:link href="http://cedricpinson.com/feeds/cedric-pinson.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 04 Jul 2012 11:19:00 +0200</lastBuildDate><item><title>WebGL Camp</title><link>http://cedricpinson.com/webgl-camp.html</link><description>&lt;p&gt;I did a talk at webgl camp in switzerland, that was really nice to meet
 other people doing webgl stuff. Amazing projects seen there like quake4
 in the browser, the nokia demo, really interesting projects. I talked
 about how shaders were generated in sketchfab.com and you can find my
@@ -776,16 +776,4 @@ little 48 hours learning about it during the session.. Anyway here is
 the result :)&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.globalgamejam.org/2010/princesskunkunpechopecho"&gt;&lt;img alt="" src="media/2010/04/press.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Have a try
-&lt;a href="http://www.globalgamejam.org/2010/princesskunkunpechopecho"&gt;http://www.globalgamejam.org/2010/princesskunkunpechopecho&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 01 Feb 2010 20:48:00 +0100</pubDate><guid>tag:cedricpinson.com,2010-02-01:global-game-jam-2010.html</guid></item><item><title>About</title><link>http://cedricpinson.com/about.html</link><description>&lt;p&gt;Cedric Pinson has been working in 3D software for over 15 years. He
-started off his career in the video game industry at Nemosoft in 2000
-and then moved to Mekensleep in 2004. In 2007, he joined Outflop where
-he served as the project leader for 3D client technology. He is a
-contributor to the &lt;a href="http://openscenegraph.org"&gt;OpenSceneGraph&lt;/a&gt; project
-and the author and maintainer of osgAnimation, the OpenSceneGraph's
-animation nodekit. He contributed to the 2011 publication of
-&lt;a href="https://www.packtpub.com/openscenegraph-3-0-beginners-guide/book"&gt;OpenSceneGraph Beginner's
-Guide&lt;/a&gt;
-as a technical reviewer. Recently, with the introduction of WebGL, he
-created javascript version of OpenSceneGraph known as
-&lt;a href="http://osgjs.org"&gt;osgJS&lt;/a&gt; to bring this api to the web.&lt;/p&gt;
-&lt;p&gt;He now does freelance work using OpenGL and WebGL technologies.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Sun, 06 Dec 2009 22:31:00 +0100</pubDate><guid>tag:cedricpinson.com,2009-12-06:about.html</guid></item></channel></rss>
+&lt;a href="http://www.globalgamejam.org/2010/princesskunkunpechopecho"&gt;http://www.globalgamejam.org/2010/princesskunkunpechopecho&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cedric Pinson</dc:creator><pubDate>Mon, 01 Feb 2010 20:48:00 +0100</pubDate><guid>tag:cedricpinson.com,2010-02-01:global-game-jam-2010.html</guid></item></channel></rss>
